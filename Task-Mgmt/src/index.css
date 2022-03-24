@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.florence-blue{
+    background-color: #a8bace;
+}
+
+.florence-red{
+    background-color: #eececd;
+}
+
+
+
+
+
