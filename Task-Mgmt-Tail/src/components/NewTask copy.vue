@@ -1,40 +1,27 @@
 <template>
-
-
-    <div class="py-10 bg-gray-50 px-5">
-            <div>
-               <div>
-                  <label class="font-medium text-xl text-gray-800 text-left" name="title"> Title: </label>
-                </div>
-                <div class="flex flex-row h-11">
-                  <input type="text" name="title" v-model="title" class=" w-2/4 inline-block p-0 m-0 text-xl text-black placeholder-gray-50 font-regular bg-gray-300 border-transparent rounded-l h-11">
-                  <button v-if="idEdit<0" class="px-5 mx-3 my-0 py-0 inline-block py-2 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200" @click="selectCreateUpdate()">Add Task</button>
-                  <button v-else class="px-5 mx-3 my-0 inline-block py-2 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200" @click="selectCreateUpdate()">Modify </button>
-                  <button class="px-7 mx-0 my-0 py-0 inline-block py-2 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200" @click="cancelEdit()">Cancel</button>
-                </div>
-            </div> 
-            
+    <div class="mt-2 py-5 border">
+        <!-- <h1 class="text-4xl">Hello {{ux.user.email}} </h1> -->
+        <div class="mt-2 flex flex-row justify-start">
+            <!-- <label name="title"> Title</label><input type="text" name="title" v-model="x.taskEdit.title"> -->
+            <label name="title"> Title</label>
+            <input class="w-full py-3 pl-3 mb-4 bg-white rounded-lg" type="text" name="title" v-model="title" >
            
-           
-           
+            <button class="w-full inline-block px-6 py-3 mb-4 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200" @click="selectCreateUpdate()">Add Task</button>
+            {{title}}
+            <!-- {{"*"+taskEdit.title+"*"}}
+            {{" ["+x.taskEdit.title+"]"}} -->
+            {{"*"+idEdit+"*"}}
+            {{"*"+titleEdit+"*"}}
+            <p></p><br>
+            <!-- <p>{{result}}</p> -->
         </div>
-
-
-
-          <!-- <div class="hidden lg:flex">
-      <input class="inline-block px-4 py-3 text-sm text-gray-50 placeholder-gray-50 font-semibold bg-gray-400 border border-transparent rounded-l" placeholder="Search">
-      <button class="px-2 rounded-r bg-gray-400">
-        <svg class="text-gray-50 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </button>
-    </div> -->
-
-  
+        <div>
+            <button @click="selectCreateUpdate()" class="bg-indigo-500 mt-2 hover:bg-violet-400 text-white font-bold py-2 px-4 rounded-full"> Add Task</button>
+      </div>
+    </div>
 </template>
 
 <script setup>
-import Delete from "./Delete.vue";
 import { storeToRefs } from "pinia";
 import {useTaskStore} from "../store/task.js";
 import {useUserStore} from "../store/user"
@@ -76,13 +63,6 @@ const title= titleEdit;
 //const title = taskEdit.value.title;
  
  
-
-
-function cancelEdit(){
-  x.setTaskEdit(null);
-  this.title="";
-
-}
 
 async function getTasks(){
     await x.fetchTasks();

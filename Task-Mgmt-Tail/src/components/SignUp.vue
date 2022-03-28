@@ -1,24 +1,21 @@
 <template>
-   <div class="mt-2">
-        
-        <div class="mt-2">
-            <label name="user"> E-mail</label><input type="text" name="user" v-model="email">
-            
-        </div>
-        <div class="mt-2">
-            <label name="pass"> Password</label><input type="password" name="pass" v-model="passw">
-        </div>
-        <div>
-          <label name="pass2"> Repeat password</label><input type="password" name="pass2" v-model="passw2">
-        
-        </div>
-        <div>
-            <button @click="signUp()" class="bg-blue-500 mt-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                Register
-            </button>
-        </div>
-        
+   
 
+   <div>
+        
+        <label class="text-sm text-gray-500 text-left" name="inputMail">E-mail address</label>
+            <input class="w-full py-3 pl-3 mb-4 bg-white rounded-lg" type="email" placeholder="" name="inputMail" v-model="email">
+            <label class="text-sm text-gray-500 text-left" name="inputPassw">Password</label>
+            <input class="w-full py-3 pl-3 mb-4 bg-white rounded-lg" type="password" placeholder="" name="inputPassw" v-model="passw">
+            <label class="text-sm text-gray-500 text-left" name="inputRepPassw">Repeat Password</label>
+            <input class="w-full py-3 pl-3 mb-4 bg-white rounded-lg" type="email" placeholder="" name="inputRepPassw" v-model="repPassw">            
+             <!-- <label class="inline-block mb-4">
+              <input class="mr-1" type="checkbox" name="terms" value="1">
+              <span class="text-sm text-gray-500">By signing up, you agree to our <a class="font-bold hover:underline" href="#">Terms, Data Policy</a> and <a class="font-bold hover:underline" href="#">Cookies Policy</a>.</span>
+            </label> -->
+           
+            <button @click="signUp()" class="w-full inline-block px-6 py-3 mb-4 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200">Get Started</button>
+        
     </div>
 </template>
 

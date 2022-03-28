@@ -1,23 +1,12 @@
 <template>
-   <div class="mt-2">
+   <div>
         
-        <div class="mt-2">
-            <label name="user"> Username</label><input type="text" name="email" v-model="email">
-            
-        </div>
-        <div class="mt-2">
-            <label name="pass"> Password</label><input type="password" name="passw" v-model="passw" >
-        </div>
-           {{email}}
-            {{passw}}
-        <div>
-           <button @click="signIn()" class="bg-blue-500 mt-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                Register
-            </button>
-         
-        </div>
-              
-
+        <label class="text-sm text-gray-500 text-left" name="inputMail">E-mail address</label>
+            <input class="w-full py-3 pl-3 mb-4 bg-white rounded-lg" type="email" placeholder="" name="inputMail" v-model="email">
+            <label class="text-sm text-gray-500 text-left" name="inputPassw">Password</label>
+            <input class="w-full py-3 pl-3 mb-4 bg-white rounded-lg" type="password" placeholder="" name="inputPassw" v-model="passw">
+            <button @click="signIn()" class="w-full inline-block px-6 py-3 mb-4 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200">Get Started</button>
+    
     </div>
 </template>
 
