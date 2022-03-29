@@ -11,10 +11,13 @@
       <Nav/>
       <NewTask/>
     
-    <div class="flex flex-row mx-auto ">
+    <div class="flex flex-wrap justify-around mx-auto rounded-lg py-20">
       <div class="w-2/4">
-        <h2 class="text-3xl florence-red font-sans text-center"> TASKS</h2>
-        <div class="scroll border flex-row bg-slate-200 scrollbar scrollbar-thumb-custom scrollbar-track-custom-light overflow-y-scroll">
+        <h2 class="text-xl bold florence-red-border bg-white border-4 font-sans text-center rounded-lg font-Roboto py-0"> TASKS</h2>
+        
+        <div class="scroll border flex-row bg-white florence-red-border scrollbar scrollbar-thumb-custom scrollbar-track-custom-light overflow-y-scroll rounded-lg">
+          
+          
           <div class="flex flex-wrap items-center" >
           <TaskItem v-for="task in tasks" :key="task.id" :id="task.id" :item="task" :showComplete="false">
           </TaskItem>
@@ -22,9 +25,9 @@
         </div>  
       </div>
       <div class="w-2/4">
-        <h2 class="text-3xl bg-green-100 font-sans text-center"> COMPLETE</h2>
-          <div class="scroll border flex-row bg-slate-200 scrollbar scrollbar-thumb-custom scrollbar-track-custom-light overflow-y-scroll">
-            <div class="flex flex-wrap items-center" >
+        <h2 class="text-xl bold florence-blue-border bg-white border-4 font-sans text-center rounded-lg font-Roboto py-0"> COMPLETE</h2>
+        <div class="scroll border flex-row bg-white florence-blue-border scrollbar scrollbar-thumb-custom scrollbar-track-custom-light overflow-y-scroll rounded-lg">
+          <div class="flex flex-wrap items-center" >
             <TaskItem v-for="task in tasks" :key="task.id" :id="task.id" :item="task" :showComplete="true" :designCard="param">
             </TaskItem>
             </div>
@@ -62,7 +65,7 @@ const {tasks} = storeToRefs(x);
  const ux = useUserStore();
  const uy = storeToRefs(ux);
 
- 
+ const a="";
 const router = useRouter();
 
 // const tasks = ref([]);
@@ -71,12 +74,15 @@ const title=ref("");
 const state=ref("");
 
 const param={
-      div1: "w-full lg:w-2/4 mb-6 lg:mb-0 border",
-      div2: "p-6 bg-gray-400 rounded lg:text-center border",
-      h3: "text-2xl text-gray-50 font-heading mb-8 border",
-      btn: "flex flex-row cursor-pointer justify-center p-0 w-full text-center text-gray-500 font-semibold bg-gray-200 hover:bg-gray-300 rounded border m-0"
+      div1: "w-full lg:w-1/5  mb-6 lg:mb-0 self-start ",
+      div2: "py-1 px-1 pb-0 florence-blue-border bg-gray-100 rounded-lg lg:text-center border drop-shadow-lg hover:border-blue-700 m-1 ",
+      h3: "text-base  text-white font-heading mb-8 font-Roboto florence-blue rounded-lg p-1",
+      btn: "flex flex-wrap cursor-pointer px-1 w-full justify-center text-gray-500 font-semibold bg-gray-200 hover:bg-gray-300 rounded border m-0"
     }
 
+        
+        
+        
      
     
 

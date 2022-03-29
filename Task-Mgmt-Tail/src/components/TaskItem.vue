@@ -4,27 +4,27 @@
       <div v-if="item.is_complete===showComplete" :class="designCard.div1">
         <div :class="designCard.div2">
           <h3 :class="designCard.h3">{{item.title}}</h3>
-        <div class="flex flex-row space-x-3 " >
+        <div class="flex flex-wrap space-y-1  p-1 " >
 
         <div @click="editTasks(item.id)" :class="designCard.btn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-0" viewBox="0 0 20 20" fill="currentColor">
             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
           </svg>
-          <span >Edit</span>
+          <span class="text-sm" >Edit</span>
         </div>        
 
         <div v-if="showComplete===false" @click="completeTask(item.id)" :class="designCard.btn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-0" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
           </svg>
-          <span>Complete</span>
+          <span class="text-sm">Complete</span>
         </div>
 
         <div v-if="showComplete===true" @click="completeTask(item.id)" :class="designCard.btn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-0" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M7.707 3.293a1 1 0 010 1.414L5.414 7H11a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
           </svg>
-          <span >Re-Open</span>
+          <span class="text-sm">Re-Open</span>
         </div>
 
         <!-- <div @click="deleteTask(item.id)" :class="designCard.btn"> -->
@@ -32,7 +32,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-0" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
           </svg>
-          <span>Delete</span>
+          <span class="text-sm">Delete</span>
         </div>
 
         
@@ -150,10 +150,10 @@ const props = defineProps({
     designCard: {
       type: Object,
       default:{
-        div1: "w-full lg:w-2/4  mb-6 lg:mb-0 border",
-        div2: "p-6 bg-gray-50 rounded lg:text-center border ",
-        h3: "text-2xl  text-black font-heading mb-8 border",
-        btn: "flex flex-row cursor-pointer px-2 w-full justify-center text-gray-500 font-semibold bg-gray-200 hover:bg-gray-300 rounded border m-0"
+        div1: "w-full lg:w-1/5  mb-6 lg:mb-0 self-start ",
+        div2: "py-1 px-1 pb-0 florence-red-border bg-gray-50 rounded-lg lg:text-center border drop-shadow-lg hover:border-red-700 m-1 ",
+        h3: "text-base  text-black font-heading mb-8 font-Roboto florence-red rounded-lg p-1",
+        btn: "flex flex-wrap cursor-pointer px-1 w-full justify-center text-gray-500 font-semibold bg-gray-100 hover:bg-gray-300 rounded border m-0"
       }
       // default:{
       //   div1: "w-full lg:w-5 px-4 mb-6 lg:mb-0",

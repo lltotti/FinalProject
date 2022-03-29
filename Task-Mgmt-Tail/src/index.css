@@ -1,18 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Roboto:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Roboto:wght@100;300;400;700&family=Urbanist:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Darker+Grotesque&family=Fredericka+the+Great&family=Lato:wght@300&family=Nunito:wght@300&family=Roboto:wght@100;300;400;700&family=Urbanist:wght@300&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+.florence-blue-border{
+    border-color: #a8bace;
+}
+
 .florence-blue{
     background-color: #a8bace;
+}
+.florence-red-border{
+  
+    border-color: #eececd;
 }
 
 .florence-red{
     background-color: #eececd;
+   
+}
+.scroll{
+    /* height: 40em; */
+    max-height: 40em;
+    /* max-width: 50%; */
 }
 
-.scroll{
-    height: 40em;
-}
+font-face {
+    font-family: 'Roboto';
+    /* src: local('Roboto'), url(./fonts/Roboto-Regular.ttf) format('ttf'); */
+  }
 
 
 

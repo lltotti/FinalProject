@@ -1,13 +1,13 @@
 <template>
 
 
-    <div class="py-10 bg-gray-50 px-5">
+    <div class="py-5 bg-gray-200 px-5">
             <div>
                <div>
-                  <label class="font-medium text-xl text-gray-800 text-left" name="title"> Title: </label>
+                  <label class="font-Roboto text-xl text-gray-800 text-left" name="title"> Title: </label>
                 </div>
-                <div class="flex flex-row h-11">
-                  <input type="text" name="title" v-model="title" class=" w-2/4 inline-block p-0 m-0 text-xl text-black placeholder-gray-50 font-regular bg-gray-300 border-transparent rounded-l h-11">
+                <div class="flex flex-row ">
+                  <input type="text" name="title" v-model="title" class=" font-Roboto text-lg w-2/4 inline-block p-0 m-0 text-black placeholder-gray-50 font-regular bg-white border-transparent rounded-l h-11">
                   <button v-if="idEdit<0" class="px-5 mx-3 my-0 py-0 inline-block py-2 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200" @click="selectCreateUpdate()">Add Task</button>
                   <button v-else class="px-5 mx-3 my-0 inline-block py-2 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200" @click="selectCreateUpdate()">Modify </button>
                   <button class="px-7 mx-0 my-0 py-0 inline-block py-2 text-sm text-white font-bold leading-loose bg-gray-500 hover:bg-gray-600 rounded transition duration-200" @click="cancelEdit()">Cancel</button>

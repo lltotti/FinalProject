@@ -1,5 +1,5 @@
 <template >
-    <section class="florence-blue h-screen" >
+    <section class="bg-slate-100 h-screen" >
     <router-view class="app-main" /> <!-- your routes will load inside of these tags -->    
     <router-link to="/auth"/>
  

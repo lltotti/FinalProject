@@ -31,7 +31,7 @@
            <!-- <a class="w-20 hidden lg:block px-0 py-1 text-sm text-gray-500 hover:text-gray-600 font-bold border border-gray-100 hover:border-gray-200 rounded" href="#">Sign Out</a> -->
            <p class="text-sm text-emerald-500 hover:underline cursor-pointer"> My profile</p>
            <p @click="signOut()" class="text-sm text-emerald-500 hover:underline cursor-pointer">
-             Sign out </p>
+             Sign OUT </p>
          </div>
          <!-- <a class="hidden lg:block px-6 py-3 text-sm text-gray-500 hover:text-gray-600 font-bold border border-gray-100 hover:border-gray-200 rounded" href="#">Sign Out</a> -->
       </div>
