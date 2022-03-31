@@ -3,7 +3,8 @@ import { supabase } from "../supabase";
 export const useUserStore = defineStore("user", {
   state: () => ({
     user: null,
-    isSignIn: true
+    isSignIn: true,
+    isRecoverPassw: false,
   }),
   actions: {
     async fetchUser() {
@@ -42,11 +43,16 @@ export const useUserStore = defineStore("user", {
     async signOut() {
       //console.log("asdfasdfasdf");
       const { error } = await supabase.auth.signOut()
-      if (error) throw error;
       this.user=null;
-      
-        
-      
+      if (error) throw error;
+            
+    },
+    
+    async recoverPassw(email){
+      const { data, error } = await supabase.auth.api
+      .resetPasswordForEmail(email)
+      if (error) throw error;
+    
     },
     //signIn and signOut
     persist: {

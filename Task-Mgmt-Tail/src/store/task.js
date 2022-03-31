@@ -16,7 +16,8 @@ export const useTaskStore = defineStore("tasks", {
       is_complete: "teste"
     },
     idEdit:-1,
-    titleEdit:""
+    titleEdit:"",
+    titleFilter:"",
      
     
   }),
@@ -116,6 +117,6 @@ export const useTaskStore = defineStore("tasks", {
   },
   
 
-
+  
 
 });

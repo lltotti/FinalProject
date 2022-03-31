@@ -1,7 +1,7 @@
 <template>
   
     <!-- <div v-if="item.is_complete===showComplete" class="flex flex-row items-center" > -->
-      <div v-if="item.is_complete===showComplete" :class="designCard.div1">
+      <div v-if="item.is_complete===showComplete && item.title.toLowerCase().includes(titleFilter.toLowerCase())" :class="designCard.div1">
         <div :class="designCard.div2">
           <h3 :class="designCard.h3">{{item.title}}</h3>
         <div class="flex flex-wrap space-y-1  p-1 " >
@@ -13,7 +13,7 @@
           <span class="text-sm" >Edit</span>
         </div>        
 
-        <div v-if="showComplete===false" @click="completeTask(item.id)" :class="designCard.btn">
+        <div v-if="showComplete===false && item.title.toLowerCase().includes(titleFilter.toLowerCase())" @click="completeTask(item.id)" :class="designCard.btn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-0" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
           </svg>
@@ -48,26 +48,36 @@
       </div>
       </div>
       </div>
+      <!-- MODAL REMOVE -->
       <div v-if="isModal" id="popup-modal" tabindex="-1" class=" bg-slate-600 bg-opacity-50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full justify-center items-center" aria-hidden="true">
-          <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <div class="flex justify-end p-2">
-                <button @click="isModal=false" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-modal">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-              </button>
-            </div>
-
-              <div class="p-6 pt-0 text-center">
-                <svg class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this record?</h3>
-                <button data-modal-toggle="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2" @click="deleteTask(item.id)">
-              Yes, delete
+         <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 w-64 m-auto">
+    <div class="w-full h-full text-center">
+        <div class="flex h-full flex-col justify-between content-center" >
+            <svg width="40" height="40" class="mt-4 w-12 h-12 m-auto text-indigo-500" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                <path d="M704 1376v-704q0-14-9-23t-23-9h-64q-14 0-23 9t-9 23v704q0 14 9 23t23 9h64q14 0 23-9t9-23zm256 0v-704q0-14-9-23t-23-9h-64q-14 0-23 9t-9 23v704q0 14 9 23t23 9h64q14 0 23-9t9-23zm256 0v-704q0-14-9-23t-23-9h-64q-14 0-23 9t-9 23v704q0 14 9 23t23 9h64q14 0 23-9t9-23zm-544-992h448l-48-117q-7-9-17-11h-317q-10 2-17 11zm928 32v64q0 14-9 23t-23 9h-96v948q0 83-47 143.5t-113 60.5h-832q-66 0-113-58.5t-47-141.5v-952h-96q-14 0-23-9t-9-23v-64q0-14 9-23t23-9h309l70-167q15-37 54-63t79-26h320q40 0 79 26t54 63l70 167h309q14 0 23 9t9 23z">
+                </path>
+            </svg>
+            <p class="text-gray-800 dark:text-gray-200 text-xl font-bold mt-4">
+                Remove Task
+            </p>
+            <p class="text-gray-600 dark:text-gray-400 text-xs py-2 px-6">
+                Are you sure you want to delete this task ?
+            </p>
+            <div class="flex items-center justify-between gap-4 w-full mt-8">
+                <button @click="deleteTask(item.id)" type="button" class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                    Delete
                 </button>
-                 <button data-modal-toggle="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600" @click="isModal=false">No, cancel</button>
-              </div>
+                <button @click="isModal=false" type="button" class="py-2 px-4  bg-white hover:bg-gray-100 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-indigo-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                    Cancel
+                </button>
             </div>
-          </div>
         </div>
+    </div>
+</div>
+</div>
+<!-- MODAL CREATE -->
+
+
       <!-- </div> -->
 
 
@@ -130,6 +140,7 @@ import {useUserStore} from "../store/user"
 import {useRouter} from 'vue-router';
 
 let isModal=ref(false);
+let isModalCreate=ref(false);
 
 const props = defineProps({
   item: {
@@ -169,7 +180,7 @@ const props = defineProps({
 const x = useTaskStore();
 const y = storeToRefs(x);
 //chave para reatividade na store
-const {tasks, taskEdit, titleEdit} = storeToRefs(x);
+const {tasks, taskEdit, titleEdit, titleFilter} = storeToRefs(x);
 
  const ux = useUserStore();
  const uy = storeToRefs(ux);
@@ -232,6 +243,7 @@ async function createTasks(){
     try{
       await x.createTasks(item);
       getTasks();
+      isModalCreate=true;
     }
     catch (e){
       alert(e.message);

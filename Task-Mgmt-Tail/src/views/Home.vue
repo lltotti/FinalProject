@@ -11,7 +11,7 @@
       <Nav/>
       <NewTask/>
     
-    <div class="flex flex-wrap justify-around mx-auto rounded-lg py-20">
+    <div class="flex flex-wrap justify-around mx-auto rounded-lg py-0">
       <div class="w-2/4">
         <h2 class="text-xl bold florence-red-border bg-white border-4 font-sans text-center rounded-lg font-Roboto py-0"> TASKS</h2>
         

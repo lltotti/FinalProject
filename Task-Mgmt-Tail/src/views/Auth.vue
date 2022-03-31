@@ -3,16 +3,21 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import {useUserStore} from "../store/user"
-import {reactive} from "vue";
+import {reactive,ref} from "vue";
 import SignIn from "../components/SignIn.vue";
 import SignUp from "../components/SignUp.vue";
+import {useRouter} from 'vue-router';
+import RecoverPassw from "../components/RecoverPassw.vue";
+
+
+const router = useRouter();
 
 const x = useUserStore();
 const y = storeToRefs(x);
 
 // const isSignIn=reactive(false);
 const isSignIn=y.isSignIn; 
-
+const isRecoverPassw=ref(y.isRecoverPassw);
 
 
 // function llamaSignIn(){
@@ -61,15 +66,16 @@ const isSignIn=y.isSignIn;
                   <!-- <img src="../assets/logo.png" alt="" width="50"  class="border">
                 <h3 class="mb-8 text-2xl font-bold font-heading border">Vue Task Management</h3>      
              -->
-            <SignIn v-if="isSignIn"/>
+            <RecoverPassw v-if="isRecoverPassw"/>
+            <SignIn v-else-if="isSignIn"/>
             <SignUp v-else/>
 
-            <div v-if="isSignIn" @click="isSignIn=false">
-                <a class="text-sm text-gray-500 hover:underline" href="#">Forgot password?</a>
+            <div v-if="isSignIn && !isRecoverPassw" @click="isSignIn=false">
+                <p @click="isRecoverPassw=true" class="text-sm text-gray-500 hover:underline cursor-pointer">Forgot password?</p>
                 <p class="text-sm text-gray-500">Don't have an account? <span @click="isSignIn=false" class="text-sm text-emerald-500 hover:underline cursor-pointer">Sign UP</span>.</p>
             </div>
 
-            <div v-else >
+            <div v-else-if="!isRecoverPassw" >
                 <p class="text-sm text-gray-500">Already registred? <span @click="isSignIn=true" class="text-sm text-emerald-500 hover:underline cursor-pointer">Sign IN</span>.</p>
             </div>
 

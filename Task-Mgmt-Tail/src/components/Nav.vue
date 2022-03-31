@@ -29,15 +29,30 @@
              Leandro Lopez Totti
            </h4>
            <!-- <a class="w-20 hidden lg:block px-0 py-1 text-sm text-gray-500 hover:text-gray-600 font-bold border border-gray-100 hover:border-gray-200 rounded" href="#">Sign Out</a> -->
-           <p class="text-sm text-emerald-500 hover:underline cursor-pointer"> My profile</p>
+           <p @mouseover="goProfile()" class="text-sm text-emerald-500 hover:underline cursor-pointer"> My profile</p>
+        
+            <Profile v-if="isModalProfile" @mouseleave="isModalProfile=false"/>
+      
+          
            <p @click="signOut()" class="text-sm text-emerald-500 hover:underline cursor-pointer">
              Sign OUT </p>
          </div>
          <!-- <a class="hidden lg:block px-6 py-3 text-sm text-gray-500 hover:text-gray-600 font-bold border border-gray-100 hover:border-gray-200 rounded" href="#">Sign Out</a> -->
       </div>
       
+      
      </nav>
     </div>
+    
+    
+ <!-- <div v-if="isModalProfile" id="popup-modal" tabindex="-1" class=" bg-slate-600 bg-opacity-50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full justify-center items-center" aria-hidden="true">
+         <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 w-64 m-auto">
+    <div class="w-full h-full text-center">
+        
+    </div>
+</div>
+</div> -->
+
   </section>  
   <!-- <div class="mt-2 py-10 border">
       <h1 class="text-4xl">TASKS MANAGEMENT </h1>
@@ -54,14 +69,21 @@
 import { storeToRefs } from "pinia";
 import {useUserStore} from "../store/user"
 import {useRouter} from 'vue-router';
-
+import {ref} from 'vue';
+import Profile from "./Profile.vue";
 // const {tasks} = storeToRefs()
 
 const ux = useUserStore();
 const uy = storeToRefs(ux);
 
 const router = useRouter();
+let isModalProfile=ref(false);
 
+function goProfile(){
+   
+   //router.push({ path: '/Profile' });
+   isModalProfile.value=!isModalProfile.value;
+}
 
 async function signOut(){
     try{
