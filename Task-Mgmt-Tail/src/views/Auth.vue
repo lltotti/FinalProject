@@ -60,7 +60,7 @@ const isRecoverPassw=ref(y.isRecoverPassw);
             <p class="my-2 text-sm text-gray-500 font-semibold uppercase">Sign In</p>
             <div class="flex flex-row my-6">
                   <img src="../assets/logo.png" alt="" width="35" height="2"  >
-                <h3 class="px-3 text-2xl font-bold font-heading self-end">Vue Task Management</h3>      
+                <h3 class="px-3 text-2xl font-bold font-heading self-end">2-Do Vue Task Management</h3>      
             </div>
 
                   <!-- <img src="../assets/logo.png" alt="" width="50"  class="border">

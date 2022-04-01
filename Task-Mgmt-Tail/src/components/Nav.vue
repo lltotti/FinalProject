@@ -12,7 +12,7 @@
       </div>
      <div class="flex flex-row">
                   <img src="../assets/logo.png" alt="" width="35" height="2"  >
-                <h3 class="px-3 text-2xl font-bold font-heading self-end">Vue Task Management</h3>      
+                <h3 class="px-3 text-2xl font-bold font-heading self-end">2-Do Vue Task Management</h3>      
             </div>
       <!-- <ul class="hidden lg:flex ml-auto mr-10 items-center w-auto space-x-12">
         <li><a class="text-sm text-gray-500 hover:text-gray-700" href="#">About</a></li>

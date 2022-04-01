@@ -8,7 +8,7 @@
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
             </span> -->
             <!-- <div class="inline-block absolute flex h-80 overflow-hidden transform transition-all sm:align-middle sm:max-w-lg border-2 border-black" role="dialog" aria-modal="true" aria-labelledby="modal-headline"></div> -->
-            <div class="fixed h-80 border-2 border-black" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+            <div class="absolute right-8 z-10 h-80 border-2 border-black" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                 <div>
                     <div class="rounded-t-lg p-1 bg-white shadow">
                         <div class="p-2">
