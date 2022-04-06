@@ -26,7 +26,7 @@
          </div>
          <div class="px-6">
            <h4 class="myy-0 text-sm text-gray-500 font-semibold uppercase " >
-             Leandro Lopez Totti
+             Leandro Totti
            </h4>
            <!-- <a class="w-20 hidden lg:block px-0 py-1 text-sm text-gray-500 hover:text-gray-600 font-bold border border-gray-100 hover:border-gray-200 rounded" href="#">Sign Out</a> -->
            <p @mouseover="goProfile()" class="text-sm text-emerald-500 hover:underline cursor-pointer"> My profile</p>
